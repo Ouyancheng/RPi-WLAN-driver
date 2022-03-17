@@ -14,7 +14,15 @@
 #   SRC := $(wildcard ./src/*.[Sc])
 #
 # currently not defined to hold anything
-SRC :=
+SRC := ./src/dma/dma.c \
+        ./src/emmc/emmc.c \
+        ./src/emmc/sdhci-bzt-adapter.c \
+        ./src/wlan/wlan-sdio.c \
+        ./src/wlan/wlan-backplane.c \
+        ./src/wlan/wlan-load-firmware.c \
+        ./src/wlan/brcmfmac43430-sdio.c \
+        ./src/wlan/wlan-ioctl.c \
+        ./src/wlan/wlan.c 
 
 # if you want to use our gpio.o or other .o (e.g., if yours
 # is acting weird):
@@ -23,11 +31,14 @@ SRC :=
 #
 #
 # currently: use our uart.o (for printk) and gpio.o
-STAFF_OBJS  :=  ./staff-objs/gpio.o     \
-                ./staff-objs/uart.o     \
-                ./staff-objs/gpio-pud.o     \
-                ./staff-objs/gpio-int.o 
-
+STAFF_OBJS  :=  ./staff-objs/uart.o     \
+                ./staff-objs/kmalloc.o  \
+		./src/my-gpio.o \
+		./src/mbox.o 
+                
+# STAFF_OBJS += ./staff-objs/gpio.o     
+# STAFF_OBJS += ./staff-objs/gpio-pud.o    
+# STAFF_OBJS += ./staff-objs/gpio-int.o  
 # automatically add all staff src from:  libc, 
 # staff-src and ./staff-start.S
 #
