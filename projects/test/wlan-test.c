@@ -55,121 +55,42 @@ void others() {
 void run() {
     wlan_init(); 
     #if TEST_SCAN
-    test_ioctl_scan();
+        test_ioctl_scan();
     #elif TEST_JOIN
-    // test_ioctl_join("RaspberryPi", "US", -1, SECURITY_WPA2, "raspberry"); 
-    wlan_up(); 
-    wlan_join("RaspberryPi", "US", -1, SECURITY_WPA2, "raspberry"); 
-    int exclude_events[] = {
-        44, 71, 72, 
-        -1
-    };
-    ioctl_enable_all_evts((int*)exclude_events);
-    #define WLC_E_TXFAIL 20  
-    EVT_STR evts[] = {
-        EVT(WLC_E_SET_SSID), 
-        EVT(WLC_E_LINK), 
-        EVT(WLC_E_AUTH), 
-        EVT(WLC_E_DEAUTH_IND), 
-        EVT(WLC_E_DISASSOC_IND), 
-        EVT(WLC_E_PSK_SUP), 
-        EVT(WLC_E_TXFAIL), 
-        EVT(-1)
-    };
-    wlan_listen_to_events(NULL); 
+        wlan_up(); 
+        wlan_join("RaspberryPi", "US", -1, SECURITY_WPA2, "raspberry"); 
+        int exclude_events[] = {
+            44, 71, 72, 
+            -1
+        };
+        ioctl_enable_all_evts((int*)exclude_events);
+        #define WLC_E_TXFAIL 20  
+        EVT_STR evts[] = {
+            EVT(WLC_E_SET_SSID), 
+            EVT(WLC_E_LINK), 
+            EVT(WLC_E_AUTH), 
+            EVT(WLC_E_DEAUTH_IND), 
+            EVT(WLC_E_DISASSOC_IND), 
+            EVT(WLC_E_PSK_SUP), 
+            EVT(WLC_E_TXFAIL), 
+            EVT(-1)
+        };
+        wlan_listen_to_events(NULL); 
     #elif TEST_SEND
-    wlan_up(); 
-    wlan_join("raspberrypi1", "US", -1, SECURITY_WPA2, "raspberry"); 
-    // b8:27:eb:b0:a8:30
-    // dc:a6:32:a1:94:fe
-    uint8_t dest_mac[6] = 
-    {0xdc, 0xa6, 0x32, 0xa1, 0x94, 0xfe};    // RPi 4 _1 dc:a6:32:a1:94:fe
-    // {0xff, 0xff, 0xff, 0xff, 0xff, 0xff};   // broadcast 
-    // {0xb8, 0x27, 0xeb, 0xb0, 0xa8, 0x30};   // RPi 3
-    uint8_t *test_data = "Hello World from Pi Zero~"; 
-    wlan_test_send_frame((uint8_t*)dest_mac, test_data, strlen(test_data)); 
+        wlan_up(); 
+        wlan_join("raspberrypi1", "US", -1, SECURITY_WPA2, "raspberry"); 
+        // b8:27:eb:b0:a8:30
+        // dc:a6:32:a1:94:fe
+        uint8_t dest_mac[6] = 
+        {0xdc, 0xa6, 0x32, 0xa1, 0x94, 0xfe};    // RPi 4 _1 dc:a6:32:a1:94:fe
+        // {0xff, 0xff, 0xff, 0xff, 0xff, 0xff};   // broadcast 
+        // {0xb8, 0x27, 0xeb, 0xb0, 0xa8, 0x30};   // RPi 3
+        uint8_t *test_data = "Hello World from Pi Zero~"; 
+        wlan_test_send_frame((uint8_t*)dest_mac, test_data, strlen(test_data)); 
     #endif 
 
 }
 void notmain() {
     run(); 
-    // // others(); 
-    // set_ether_func_gpio(); 
-    // printk("setting ether gpio done! initing sdio\n"); 
-    // int ret = sdio_init(); 
-    // printk("ret = %d\n", ret); 
-    // uint8_t buffer[4];
-    // // get the chip id 
-    // uint32_t chip_id = get_chip_id(); 
-    // printk("chip_id = %x\n", chip_id); // 0xA6 0xA9 0x41 0x15, or 0x1541a9a6 
-    // // try scanning core 
-    // // uint32_t r = backplane_read32(BACKPLANE_BASE_ADDR + 63*4);
-    // // corescan(ctl, r); 
-    // // initialize the backplane 
-    // backplane_init(ctl); 
-    // printk("chipcommon=%x, armcore=%x, armctl=%x, armregs=%x, socramctl=%x, socramregs=%x, socramrev=%x, sdregs=%x, sdiorev=%x, d11ctl=%x\n", 
-    //     ctl->chipcommon, 
-    //     ctl->armcore, 
-    //     ctl->armctl, 
-    //     ctl->armregs, 
-    //     ctl->socramctl, 
-    //     ctl->socramregs, 
-    //     ctl->socramrev, 
-    //     ctl->sdregs, 
-    //     ctl->sdiorev, 
-    //     ctl->d11ctl
-    // );
-    
-    // // upload firmware 
-    // printk("uploading firmware...\n"); 
-    // // const unsigned char *firmware_buffer = NULL; 
-    // // unsigned firmware_size = 0; 
-    // // get_firmware(&firmware_buffer, &firmware_size); 
-    // // upload_data(ctl->rambase, firmware_buffer, firmware_size); 
-    // // printk("firmware uploaded...\n"); 
-    // // delay_ms(3000);
-    // // printk("verifying...\n");
-    // // assert(verify_upload_data(ctl->rambase, firmware_buffer, firmware_size) == 0); 
-
-    // assert(firmware_upload() == 0); 
-
-    // printk("FIRMWARE Upload Done!!!\n");
-    // // backplane_enable 
-    // assert(backplane_enable(ctl) == 0); 
-    // printk("wait for interrupt\n"); 
-    // uint32_t intr = 0; 
-    // emmc_wait_for_interrupt(EMMC_INTERRUPT_CARD, 3000); 
-    // // intr = GET32(EMMC_INTERRUPT); 
-    // // while ((intr & EMMC_INTERRUPT_CARD) == 0) {
-    // //     printk("no interrupt\n"); 
-    // //     delay_ms(500); 
-    // //     intr = GET32(EMMC_INTERRUPT); 
-    // // }
-    // printk("got interrupt\n"); 
-    // card_interrupt_handler(emmc.interrupt_val); 
-    // printk("SUCCESS!!!\n"); 
-    // delay_ms(500); 
-
-    // // emmc_write_register(EMMC_INTERRUPT, EMMC_INTERRUPT_CARD); 
-    // // intr = GET32(EMMC_INTERRUPT); 
-    // // int cnt = 0; 
-    // // while ((intr & EMMC_INTERRUPT_CARD) != 0) {
-    // //     printk("strange: we've already cleared the card interrupt, there's another one? intr = %x\n", intr); 
-    // //     card_interrupt_handler(intr); 
-    // //     emmc_write_register(EMMC_INTERRUPT, intr); 
-    // //     dev_barrier(); 
-    // //     intr = GET32(EMMC_INTERRUPT); 
-    // //     if ((cnt++) > 3) {
-    // //         break; 
-    // //     }
-    // // }
-    // printk("performing the rest of the initialization...\n"); 
-    // backplane_init_enable_unknown_tailing_sequence(); 
-    // uint8_t resp[256] = {0}; 
-    // ////// MUST READ THIS!!!!!! 
-    // sdio_perform_io(0, SDIO_FN2, BACKPLANE_32BIT_ADDR_BASE, resp, 64, 1); 
-    // printk("SUCCESS!!!\n"); 
-    // test_ioctl(); 
-    // return; 
 }
 
