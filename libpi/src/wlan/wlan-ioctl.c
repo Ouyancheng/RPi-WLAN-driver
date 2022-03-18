@@ -17,6 +17,113 @@
 
 /// File instrumented by Yancheng Ou 
 #include "wlan/wlan-ioctl.h"
+/// Plan 9's event names 
+char *eventnames[] = {
+    [0] = "set ssid",
+    [1] = "join",
+    [2] = "start",
+    [3] = "auth",
+    [4] = "auth ind",
+    [5] = "deauth",
+    [6] = "deauth ind",
+    [7] = "assoc",
+    [8] = "assoc ind",
+    [9] = "reassoc",
+    [10] = "reassoc ind",
+    [11] = "disassoc",
+    [12] = "disassoc ind",
+    [13] = "quiet start",
+    [14] = "quiet end",
+    [15] = "beacon rx",
+    [16] = "link",
+    [17] = "mic error",
+    [18] = "ndis link",
+    [19] = "roam",
+    [20] = "txfail",
+    [21] = "pmkid cache",
+    [22] = "retrograde tsf",
+    [23] = "prune",
+    [24] = "autoauth",
+    [25] = "eapol msg",
+    [26] = "scan complete",
+    [27] = "addts ind",
+    [28] = "delts ind",
+    [29] = "bcnsent ind",
+    [30] = "bcnrx msg",
+    [31] = "bcnlost msg",
+    [32] = "roam prep",
+    [33] = "pfn net found",
+    [34] = "pfn net lost",
+    [35] = "reset complete",
+    [36] = "join start",
+    [37] = "roam start",
+    [38] = "assoc start",
+    [39] = "ibss assoc",
+    [40] = "radio",
+    [41] = "psm watchdog",
+    [44] = "probreq msg",
+    [45] = "scan confirm ind",
+    [46] = "psk sup",
+    [47] = "country code changed",
+    [48] = "exceeded medium time",
+    [49] = "icv error",
+    [50] = "unicast decode error",
+    [51] = "multicast decode error",
+    [52] = "trace",
+    [53] = "bta hci event",
+    [54] = "if",
+    [55] = "p2p disc listen complete",
+    [56] = "rssi",
+    [57] = "pfn scan complete",
+    [58] = "extlog msg",
+    [59] = "action frame",
+    [60] = "action frame complete",
+    [61] = "pre assoc ind",
+    [62] = "pre reassoc ind",
+    [63] = "channel adopted",
+    [64] = "ap started",
+    [65] = "dfs ap stop",
+    [66] = "dfs ap resume",
+    [67] = "wai sta event",
+    [68] = "wai msg",
+    [69] = "escan result",
+    [70] = "action frame off chan complete",
+    [71] = "probresp msg",
+    [72] = "p2p probreq msg",
+    [73] = "dcs request",
+    [74] = "fifo credit map",
+    [75] = "action frame rx",
+    [76] = "wake event",
+    [77] = "rm complete",
+    [78] = "htsfsync",
+    [79] = "overlay req",
+    [80] = "csa complete ind",
+    [81] = "excess pm wake event",
+    [82] = "pfn scan none",
+    [83] = "pfn scan allgone",
+    [84] = "gtk plumbed",
+    [85] = "assoc ind ndis",
+    [86] = "reassoc ind ndis",
+    [87] = "assoc req ie",
+    [88] = "assoc resp ie",
+    [89] = "assoc recreated",
+    [90] = "action frame rx ndis",
+    [91] = "auth req",
+    [92] = "tdls peer event",
+    [127] = "bcmc credit support"
+};
+const char *ioctl_get_event_name(uint32_t event) {
+    const char *unknown_event = "UNKNOWN EVENT"; 
+    if (event >= 128) {
+        return unknown_event; 
+    }
+    const char *name = eventnames[event]; 
+    if (!name) {
+        return unknown_event; 
+    }
+    return eventnames[event]; 
+}
+
 typedef union
 {
     int32_t  int32;
@@ -357,6 +464,5 @@ void disp_fields(void *data, char *fields, int maxlen)
 
 // shutdown: wlcmdint(ctlr, 3, 0);        /* DOWN */ 
 // and then reset sdio 
-
 
 

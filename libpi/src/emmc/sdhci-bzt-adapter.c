@@ -105,7 +105,7 @@ int sd_init() {
 
     emmc_dump_regs("After app cmd"); 
     
-    printk("acmd_send_scr_cmdtm = %x\n", emmc_cmdtm_masks[EMMC_ACMD_SEND_SCR] | (EMMC_ACMD_SEND_SCR << EMMC_CMDTM_CMD_INDEX_SHIFT));
+    printk("acmd_send_scr_cmdtm = %x\n", emmc_cmdtm_get_masks(EMMC_ACMD_SEND_SCR) | (EMMC_ACMD_SEND_SCR << EMMC_CMDTM_CMD_INDEX_SHIFT));
     cmd(EMMC_ACMD_SEND_SCR, 0, resp); 
     
     emmc_dump_regs("After send SCR");    

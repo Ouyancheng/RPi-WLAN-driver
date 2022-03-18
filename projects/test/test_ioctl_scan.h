@@ -20,7 +20,7 @@
 /// file instrumented by Yancheng Ou 
 #include "wlan/wlan-ioctl.h"
 #include "wlan/wlan.h"
-#define SCAN_CHAN       1
+#define SCAN_CHAN       0
 EVT_STR escan_evts[]=ESCAN_EVTS;
 #define SSID_MAXLEN         32
 #define SCANTYPE_ACTIVE     0

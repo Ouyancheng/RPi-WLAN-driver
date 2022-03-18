@@ -45,9 +45,9 @@ void others() {
     // printk("initing emmc done! setting ether gpio\n"); 
     // delay_ms(1000);
 }
-#define TEST_SCAN 0 
+#define TEST_SCAN 1 
 #define TEST_JOIN 0 
-#define TEST_SEND 1 
+#define TEST_SEND 0 
 #if TEST_SCAN
 #include "test_ioctl_scan.h"
 #endif 
