@@ -48,6 +48,12 @@ void others() {
 #define TEST_SCAN 1 
 #define TEST_JOIN 0 
 #define TEST_SEND 0 
+
+/**
+ * NOTE: send currently not working!!! Still figuring out... 
+ * scan and join/recv should work. 
+ */
+
 #if TEST_SCAN
 #include "test_ioctl_scan.h"
 #endif 
