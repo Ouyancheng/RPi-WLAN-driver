@@ -104,9 +104,9 @@ int sdhost_sd_readblock(unsigned int lba, unsigned char *buffer, unsigned int nu
     //     buf += 128;
     // }
     // return num * 512; 
-    if (!(sd_scr[0] & EMMC_SCR_SUPP_CCS)) {
-        panic("let's simplify the problem by assuming that the card supports multiblock transfer...\n"); 
-    }
+    // if (!(sd_scr[0] & EMMC_SCR_SUPP_CCS)) {
+    //     panic("let's simplify the problem by assuming that the card supports multiblock transfer...\n"); 
+    // }
     uint32_t blocks_remaining =  num; 
     uint32_t bcount = 0; 
     const uint32_t max_block = 1; // SDHOST_MAX_IO_SIZE / 512; 
