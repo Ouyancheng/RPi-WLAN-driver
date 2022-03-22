@@ -45,13 +45,13 @@ void others() {
     // printk("initing emmc done! setting ether gpio\n"); 
     // delay_ms(1000);
 }
-#define TEST_SCAN 1 
+#define TEST_SCAN 0 
 #define TEST_JOIN 0 
-#define TEST_SEND 0 
+#define TEST_SEND 1 
 
 /**
- * NOTE: send currently not working!!! Still figuring out... 
- * scan and join/recv should work. 
+ * NOTE: send currently working!!! 
+ * send, scan and join/recv should now work. 
  */
 
 #if TEST_SCAN

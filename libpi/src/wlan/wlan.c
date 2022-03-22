@@ -1,5 +1,9 @@
 #include "wlan/wlan.h"
+#include "wlan/whd/whd_events.h"
+#include "wlan/wlan-backplane.h"
+#include "wlan/wlan-ioctl.h"
 #include "wlan/wlan-load-firmware.h"
+#include <stdint.h>
 uint8_t eventbuffer[2048];
 #define DISPLAY_FRAME 1 
 #define PRINT_DATA_AS_STRING 1
@@ -79,7 +83,7 @@ int wlan_up() {
     ioctl_wr_int32(0x56, DEFAULT_WAIT_MSEC, 0); 
     /** Are we doing tx glom mode? If so we need to use the glom header for the tx packets!!! */
     /// wlsetint(ctlr, "bus:txglom", 0);
-    // ioctl_set_uint32("bus:txglom", DEFAULT_WAIT_MSEC, 0); 
+    ioctl_set_uint32("bus:txglom", DEFAULT_WAIT_MSEC, 0); 
     /// wlsetint(ctlr, "bcn_timeout", 10);
     ioctl_set_uint32("bcn_timeout", DEFAULT_WAIT_MSEC, 10); 
     /// wlsetint(ctlr, "assoc_retry_max", 3);
@@ -339,22 +343,139 @@ void disp_bytes(uint8_t *data, int len) {
 }
 
 // typedef uint8_t uchar; 
-// struct Sdpcm {
-// 	uchar	len[2];
-// 	uchar	lenck[2];
-// 	uchar	seq;
-// 	uchar	chanflg;
-// 	uchar	nextlen;
-// 	uchar	doffset;
-// 	uchar	fcmask;
-// 	uchar	window;
-// 	uchar	version;
-// 	uchar	pad;
-// };
-// #define SDPCM_SIZE sizeof(struct Sdpcm); 
-
 uint8_t txbuffer[2048]; 
+typedef unsigned char uchar; 
+typedef struct Block
+{
+    struct Block *next;
+    uchar *buf;
+    uchar *lim;
+    uchar *wp;
+    uchar *rp;
+    uchar data[0];
+#define BLEN(b)		((b)->wp - (b)->rp)
+}
+Block;
+Block *allocb(uint32_t size) {
+    static const uint32_t maxhdrsize = 64; 
+    size += sizeof(IOCTL_EVENT_HDR) + maxhdrsize; 
+    Block *b = (Block*)txbuffer; 
+    b->buf = b->data; 
+    b->next = 0; 
+    b->lim = b->buf + size; 
+    b->wp = b->buf + maxhdrsize; 
+    b->rp = b->wp; 
+    return b; 
+}
+Block *padblock(Block *b, int size) {
+    assert (size > 0);
+    assert (b != 0);
+    assert (b->rp - b->buf >= size);
+    b->rp -= size;
+    return b;
+}
+struct Sdpcm {
+    uchar   len[2];
+    uchar   lenck[2];
+    uchar   seq;
+    uchar   chanflg;
+    uchar   nextlen;
+    uchar   doffset;
+    uchar   fcmask;
+    uchar   window;
+    uchar   version;
+    uchar   pad;
+};
+typedef struct Sdpcm Sdpcm; 
+_Static_assert(sizeof(Sdpcm) == 12, "Sdpcm size != 12?"); 
+#define FLIPENDIAN(x) ((((x) & 0xFF00) >> 8) | (((x) & 0x00FF) << 8))
+void txstart(uint8_t *buffer, uint32_t size) {
+    Block *b = allocb(size); 
+    memcpy(b->wp, buffer, size);
+    b->wp += size; 
+    int len; 
+    int off; 
+    off = ((uintptr_t)b->rp & 3) + sizeof(Sdpcm); 
+    b = padblock(b, off + 4); 
+    len = BLEN(b); 
+    Sdpcm *p;
+    p = (Sdpcm*)b->rp;
+    memset(p, 0, off); 
+    serialize_int16(p->len, len); 
+    serialize_int16(p->lenck, ~len); 
+    p->chanflg = 2; 
+    p->seq = txseq; 
+    p->doffset = off; 
+    serialize_int32(b->rp + off, 0x20); /* BDC header */
+    printk("\n----------\n" 
+            "b->rp = \n"); 
+    for (int i = 0; i < len; ++i) {
+        printk("%x ", b->rp[i]); 
+    }
+    printk("\n----------\n"); 
+    int n = sdio_cmd53_write(SDIO_FN2, BACKPLANE_32BIT_ADDR_BASE, b->rp, ROUNDUP(len,4)); 
+    ioctl_wait(IOCTL_WAIT_USEC);
+    int wait_msec = 100; 
+    uint32_t val=0;
+    IOCTL_MSG rxmsg;
+    IOCTL_MSG *rsp = &rxmsg;
+    while (wait_msec>=0 && n==0) {
+        // Wait for response to be available
+        wait_msec -= IOCTL_POLL_MSEC;
+        sdio_bak_read32(SB_INT_STATUS_REG, &val);
+        // If response is waiting..
+        if (val & 0xFF) {
+            // ..request response
+            sdio_bak_write32(SB_INT_STATUS_REG, val);
+            // Fetch response
+            n = sdio_cmd53_read(SDIO_FN2, SB_32BIT_WIN, (void *)rsp, len);
+            // // Discard response if not matching request
+            // if ((rsp->cmd.flags>>16) != ioctl_reqid) n = 0;
+            // // Exit if error response
+            // if (n && (rsp->cmd.flags & 1)) { n = 0; break; }
+        }
+        // If no response, wait
+        else { 
+            delay_us(IOCTL_POLL_MSEC * 1000);
+            printk("noresponse!\n"); 
+        }
+    }
+    if (n == 0) {
+        printk("Frame failed to send!\n"); 
+        return; 
+    }
+    printk("Frame written to WLAN memory\n"); 
+    txseq += 1; 
+}
+#define ETH_P_IP 0x800
+uint8_t framebuf[128]; 
+int send_raw_ip_packet(uint8_t *src_mac, uint8_t *dst_mac, const char *ippacket, uint32_t len) {
+    whd_event_ether_header_t *petherheader = (whd_event_ether_header_t*)framebuf;
+    for (int i = 0; i < 6; ++i) {
+        petherheader->source_address.octet[i] = src_mac[i];
+    }
+    for (int i = 0; i < 6; ++i) {
+        petherheader->destination_address.octet[i] = dst_mac[i];
+    }
+    petherheader->ethertype = FLIPENDIAN(ETH_P_IP); 
+    
+    memcpy((uint8_t*)framebuf + sizeof(whd_event_ether_header_t), ippacket, len); 
+    
+    len += sizeof(whd_event_ether_header_t); 
+    txstart(framebuf, len); 
+
+    return 0; 
+}
+
 int wlan_test_send_frame(uint8_t *dest_mac, uint8_t *framedata, uint32_t len) {
+    int n = 0; 
+    send_raw_ip_packet(mac_addr, dest_mac, framedata, len);
+    delay_ms(5000); 
+    for (int i = 0; i < 10; ++i) {
+        send_raw_ip_packet(mac_addr, dest_mac, framedata, len); 
+        delay_ms(5000); 
+    }
+#if 0 
     uint32_t frame_sz = 
         sizeof(IOCTL_EVENT_HDR) 
         + 10  // padding? 
@@ -412,13 +533,13 @@ int wlan_test_send_frame(uint8_t *dest_mac, uint8_t *framedata, uint32_t len) {
     ethp->source_address.octet[3] = mac_addr[3]; 
     ethp->source_address.octet[4] = mac_addr[4]; 
     ethp->source_address.octet[5] = mac_addr[5]; 
-#define ETH_P_IP 0x800
+
     ethp->ethertype = ETH_P_IP; 
 
     memcpy(datap, framedata, len); 
 
 
-    int n = 0; 
+    
     n = sdio_cmd53_write(
         SDIO_FN2, 
         BACKPLANE_32BIT_ADDR_BASE, 
@@ -465,6 +586,12 @@ int wlan_test_send_frame(uint8_t *dest_mac, uint8_t *framedata, uint32_t len) {
     }
     printk("Frame written to WLAN memory\n"); 
     txseq++; 
+
+#endif 
+
+
+
+
 #define WLC_E_TXFAIL 20 
     int exclude_events[] = {
         44, 71, 72, 

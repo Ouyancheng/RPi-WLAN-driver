@@ -1,0 +1,158 @@
+DN51slvp:test ouyancheng$ ssh pi@raspberrypi1.local 
+pi@raspberrypi1.local's password: 
+Linux raspberrypi1 5.10.103-v8+ #1530 SMP PREEMPT Tue Mar 8 13:06:35 GMT 2022 aarch64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Tue Mar 22 11:21:03 2022 from fe80::acbc:32ff:fe1d:6964%eth0
+
+SSH is enabled and the default password for the 'pi' user has not been changed.
+This is a security risk - please login as the 'pi' user and type 'passwd' to set a new password.
+
+pi@raspberrypi1:~ $ ls
+recv_raw_eth_frame  recv_raw_eth_frame.c  send_raw_eth_frame  send_raw_eth_frame.c
+pi@raspberrypi1:~ $ sudo ./recv_raw_eth_frame 
+listener: Waiting to recvfrom...
+listener: got packet 342 bytes
+Wrong destination MAC: ff:ff:ff:ff:ff:ff
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 342 bytes
+Wrong destination MAC: ff:ff:ff:ff:ff:ff
+listener: Waiting to recvfrom...
+listener: got packet 342 bytes
+Wrong destination MAC: ff:ff:ff:ff:ff:ff
+listener: Waiting to recvfrom...
+listener: got packet 137 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 137 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 342 bytes
+Wrong destination MAC: ff:ff:ff:ff:ff:ff
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 1024 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 1024 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 1024 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 1024 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 1024 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 1024 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 342 bytes
+Wrong destination MAC: ff:ff:ff:ff:ff:ff
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 342 bytes
+Wrong destination MAC: ff:ff:ff:ff:ff:ff
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 342 bytes
+Wrong destination MAC: ff:ff:ff:ff:ff:ff
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 342 bytes
+Wrong destination MAC: ff:ff:ff:ff:ff:ff
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 342 bytes
+Wrong destination MAC: ff:ff:ff:ff:ff:ff
+listener: Waiting to recvfrom...
+listener: got packet 39 bytes
+Correct destination MAC address
+Source IP: 102.114.111.109
+ My IP: 192.168.5.1
+	Data:dc:a6:32:a1:94:fe:b8:27:eb:5d:51:5a:08:00:48:65:6c:6c:6f:20:57:6f:72:6c:64:20:66:72:6f:6d:20:50:69:20:5a:65:72:6f:7e:
+listener: Waiting to recvfrom...
+listener: got packet 342 bytes
+Wrong destination MAC: ff:ff:ff:ff:ff:ff
+listener: Waiting to recvfrom...
+listener: got packet 117 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 117 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 117 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 117 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 117 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+listener: got packet 117 bytes
+Wrong destination MAC: 1:0:5e:0:0:fb
+listener: Waiting to recvfrom...
+

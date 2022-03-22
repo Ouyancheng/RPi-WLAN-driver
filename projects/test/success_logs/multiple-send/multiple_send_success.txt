@@ -1,0 +1,239 @@
+DN51slvp:test ouyancheng$ make 
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  wlan-test.c -MM -MT wlan-test.o >wlan-test.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/yield.c -MM -MT objs/yield.o >objs/yield.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/timer.c -MM -MT objs/timer.o >objs/timer.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/timer-interrupt.c -MM -MT objs/timer-interrupt.o >objs/timer-interrupt.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/reboot.c -MM -MT objs/reboot.o >objs/reboot.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/panic.c -MM -MT objs/panic.o >objs/panic.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/interrupts-c.c -MM -MT objs/interrupts-c.o >objs/interrupts-c.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/delay-ncycles.c -MM -MT objs/delay-ncycles.o >objs/delay-ncycles.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/default-reboot-handler.c -MM -MT objs/default-reboot-handler.o >objs/default-reboot-handler.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/default-reboot-callout.c -MM -MT objs/default-reboot-callout.o >objs/default-reboot-callout.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/default-handler-undefined-inst.c -MM -MT objs/default-handler-undefined-inst.o >objs/default-handler-undefined-inst.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/default-handler-swi.c -MM -MT objs/default-handler-swi.o >objs/default-handler-swi.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/default-handler-reset.c -MM -MT objs/default-handler-reset.o >objs/default-handler-reset.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/default-handler-prefetch.c -MM -MT objs/default-handler-prefetch.o >objs/default-handler-prefetch.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/default-handler-interrupt.c -MM -MT objs/default-handler-interrupt.o >objs/default-handler-interrupt.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/default-handler-int.c -MM -MT objs/default-handler-int.o >objs/default-handler-int.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/default-handler-fast.c -MM -MT objs/default-handler-fast.o >objs/default-handler-fast.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/default-handler-data-abort.c -MM -MT objs/default-handler-data-abort.o >objs/default-handler-data-abort.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/cycle-per-sec.c -MM -MT objs/cycle-per-sec.o >objs/cycle-per-sec.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/custom-loader.c -MM -MT objs/custom-loader.o >objs/custom-loader.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/cstart.c -MM -MT objs/cstart.o >objs/cstart.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/clean-reboot.c -MM -MT objs/clean-reboot.o >objs/clean-reboot.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/cache.c -MM -MT objs/cache.o >objs/cache.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./staff-src/asm-helpers.c -MM -MT objs/asm-helpers.o >objs/asm-helpers.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/va-printk.c -MM -MT objs/va-printk.o >objs/va-printk.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/uart-hex.c -MM -MT objs/uart-hex.o >objs/uart-hex.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/strncmp.c -MM -MT objs/strncmp.o >objs/strncmp.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/strlen.c -MM -MT objs/strlen.o >objs/strlen.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/strcpy.c -MM -MT objs/strcpy.o >objs/strcpy.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/strcmp.c -MM -MT objs/strcmp.o >objs/strcmp.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/strchr.c -MM -MT objs/strchr.o >objs/strchr.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/strcat.c -MM -MT objs/strcat.o >objs/strcat.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/snprintk.c -MM -MT objs/snprintk.o >objs/snprintk.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/rpi-rand.c -MM -MT objs/rpi-rand.o >objs/rpi-rand.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/putk.c -MM -MT objs/putk.o >objs/putk.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/putchar.c -MM -MT objs/putchar.o >objs/putchar.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/printk.c -MM -MT objs/printk.o >objs/printk.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/memset.c -MM -MT objs/memset.o >objs/memset.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/memmove.c -MM -MT objs/memmove.o >objs/memmove.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/memiszero.c -MM -MT objs/memiszero.o >objs/memiszero.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/memcpy.c -MM -MT objs/memcpy.o >objs/memcpy.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/memcmp.c -MM -MT objs/memcmp.o >objs/memcmp.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/memchr.c -MM -MT objs/memchr.o >objs/memchr.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/hash.c -MM -MT objs/hash.o >objs/hash.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./libc/crc.c -MM -MT objs/crc.o >objs/crc.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./src/sdhost/sdhost-bzt-adapter.c -MM -MT objs/sdhost-bzt-adapter.o >objs/sdhost-bzt-adapter.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./src/sdhost/sdhost.c -MM -MT objs/sdhost.o >objs/sdhost.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./src/wlan/wlan-ioctl.c -MM -MT objs/wlan-ioctl.o >objs/wlan-ioctl.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./src/wlan/brcmfmac43430-sdio.c -MM -MT objs/brcmfmac43430-sdio.o >objs/brcmfmac43430-sdio.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./src/wlan/wlan-load-firmware.c -MM -MT objs/wlan-load-firmware.o >objs/wlan-load-firmware.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./src/wlan/wlan-backplane.c -MM -MT objs/wlan-backplane.o >objs/wlan-backplane.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./src/wlan/wlan-sdio.c -MM -MT objs/wlan-sdio.o >objs/wlan-sdio.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./src/emmc/sdhci-bzt-adapter.c -MM -MT objs/sdhci-bzt-adapter.o >objs/sdhci-bzt-adapter.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./src/emmc/emmc.c -MM -MT objs/emmc.o >objs/emmc.d
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  ./src/dma/dma.c -MM -MT objs/dma.o >objs/dma.d
+make[1]: Nothing to be done for `all'.
+arm-none-eabi-gcc -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private -ggdb -Wno-pointer-sign   -Werror  -Wno-unused-function -Wno-unused-variable  -c wlan-test.c -o wlan-test.o
+arm-none-eabi-gcc -c -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/include -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/ -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/src -I. -I/Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-private /Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-start.S -o /Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-start.o
+arm-none-eabi-ld /Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/staff-start.o  wlan-test.o    -T /Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/memmap -o wlan-test.elf  /Volumes/Data/workspaces/rpi-wlan/cs140e-22win/libpi/libpi.a 
+arm-none-eabi-objdump -D   wlan-test.elf > wlan-test.list
+arm-none-eabi-objcopy wlan-test.elf -O binary wlan-test.bin
+my-install  ./wlan-test.bin
+.tv_sec = 1647973668, .tv_nsec = 0
+opened tty port </dev/cu.SLAB_USBtoUART>.
+my-install: tty-usb=</dev/cu.SLAB_USBtoUART> program=<./wlan-test.bin> about to boot
+TRACE:simple_boot: sending 423500 bytes, crc32=650fc5b9
+waiting for a start
+PRINT_STRING:pi sent print: <<Yancheng Ou in Lab4>: success: Received the program!>
+bootloader: Done.
+listening on ttyusb=</dev/cu.SLAB_USBtoUART>
+disconnecting emmc from sd card...
+connecting emmc to wifi...
+done!
+wlan sdio_init OK! ocr = 0xa0ffff00, rca = 0x1
+chip_id = 0xa9a6
+backplane_init: chip 43430 rev 1 type 1
+core 0x800 mem 0x18000000
+core 0x800 ctl 0x18100000
+core 0x812 mem 0x18001000
+core 0x812 ctl 0x18101000
+core 0x829 mem 0x18002000
+core 0x829 ctl 0x18102000
+core 0x82a mem 0x18003000
+core 0x82a ctl 0x18103000
+core 0x80e mem 0x18004000
+core 0x80e mem 0x0
+core 0x80e mem 0x10000000
+core 0x80e mem 0x1e000000
+core 0x80e ctl 0x18104000
+core 0x135 ctl 0x18000000
+core 0x135 ctl 0x18105000
+core 0x240 mem 0x19000000
+core 0x240 ctl 0x18106000
+core 0x367 mem 0x18107000
+core 0x366 mem 0x18108000
+core 0x301 mem 0x18200000
+core 0xfff mem 0x80000
+core 0xfff mem 0x10080000
+core 0xfff mem 0x18005000
+core 0xfff mem 0x1810a000
+core 0xfff mem 0x1c000000
+core 0xfff mem 0x1e0a0000
+core 0xfff ctl 0x18109000
+backplane_reset 0x18101000 0x7 0x1 ->0x5 0x0
+backplane_reset 0x18104000 0x3 0x1 ->0x1 0x0
+socramrev 22 coreinfo 0x5a040 banks=4
+bank 0 reg 0x2108c0f size 131072
+bank 1 reg 0x2108c0f size 131072
+bank 2 reg 0x2108c0f size 131072
+bank 3 reg 0x2108c0f size 131072
+ARM 0x18103000 D11 0x18101000 SOCRAM 0x18104000,0x18004000 524288 bytes @ 0x0
+chipclk: 0x40
+chipclk: 0x61
+chipcommon=0x18000000, armcore=0x82a, armctl=0x18103000, armregs=0x18003000, socramctl=0x18104000, socramregs=0x18004000, socramrev=0x16, sdregs=0x18002000, sdiorev=0x15, d11ctl=0x18101000
+uploading firmware...
+backplane_reset 0x18103000 0x3 0x1 ->0x1 0x0
+FIRMWARE Upload Done!!!
+enabling high throughput clock...
+after requesting ht, csr = 0x50
+High throughput clock enabled, retries=0
+chipclk: 0xd2
+setting backplane window = 0x18002000
+backplane window set
+SDCORE_BACKPLANE_MBOX_DATA set
+SDCORE_INT_MASK set
+retrying in 100ms...
+WLAN IO enabled!!!
+BACKPLANE + WLAN + SD interrupt enabled!!!
+wait for interrupt
+got interrupt
+WLAN Firmware ready!
+performing the rest of the initialization...
+SUCCESS!!!
+MAC address 0xb8:0x27:0xeb:0x5d:0x51:0x5a
+Firmware wl0: Oct 23 2017 03:55:53 version 7.45.98.38 (r674442 CY) FWID 01-e58d219f
+
+CPU up!
+--------------------------------------------------------
+len=0x60 seq=0x1c chan=0x1 hdrlen=0xe flow=0x0 credit=0x2b 
+0x60 0x0 0x9f 0xff 0x1c 0x1 0x0 0xe 0x0 0x2b 0x0 0x0 
+dest=0xb80x270xeb0x5d0x510x5a srce=0xba0x270xeb0x5d0x510x5a type=0x886c IOCTL event frame received
+sub=0x8001 len=0x38 oui=0x1018 usr=0x1 
+ver=0x2 flags=0x0 type=0x3 status=0x0 reason=0x0 auth=0x0 dlen=0x0 addr=0xdc0xa60x320xa10x940xfe WLC_E_AUTH SUCCESS
+0x0 0x0 0x20 0x0 0x0 0x1 0x0 0x1 0x0 0x0 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0xba 0x27 0xeb 0x5d 0x51 0x5a 0x88 0x6c 0x80 0x1 0x0 0x38 0x0 0x0 0x10 0x18 
+0x0 0x1 0x0 0x2 0x0 0x0 0x0 0x0 0x0 0x3 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 
+0x77 0x6c 0x30 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 --------------------------------------------------------
+--------------------------------------------------------
+len=0x76 seq=0x1d chan=0x1 hdrlen=0xe flow=0x0 credit=0x2b 
+0x76 0x0 0x89 0xff 0x1d 0x1 0x0 0xe 0x0 0x2b 0x0 0x0 
+dest=0xb80x270xeb0x5d0x510x5a srce=0xba0x270xeb0x5d0x510x5a type=0x886c IOCTL event frame received
+sub=0x8001 len=0x4e oui=0x1018 usr=0x1 
+ver=0x2 flags=0x1 type=0x10 status=0x0 reason=0x0 auth=0x0 dlen=0x16 addr=0xdc0xa60x320xa10x940xfe WLC_E_LINK SUCCESS
+0x0 0x0 0x20 0x0 0x0 0x1 0x0 0x1 0x0 0x0 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0xba 0x27 0xeb 0x5d 0x51 0x5a 0x88 0x6c 0x80 0x1 0x0 0x4e 0x0 0x0 0x10 0x18 
+0x0 0x1 0x0 0x2 0x0 0x1 0x0 0x0 0x0 0x10 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x16 0xdc 0xa6 0x32 0xa1 0x94 0xfe 
+0x77 0x6c 0x30 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x30 0x14 0x1 0x0 0x0 0xf 0xac 0x4 0x1 0x0 0x0 0xf 0xac 0x4 
+0x1 0x0 0x0 0xf 0xac 0x2 0x0 0x0 0x0 0x0 --------------------------------------------------------
+--------------------------------------------------------
+len=0x60 seq=0x1e chan=0x1 hdrlen=0xe flow=0x0 credit=0x2b 
+0x60 0x0 0x9f 0xff 0x1e 0x1 0x0 0xe 0x0 0x2b 0x0 0x0 
+dest=0xb80x270xeb0x5d0x510x5a srce=0xba0x270xeb0x5d0x510x5a type=0x886c IOCTL event frame received
+sub=0x8001 len=0x38 oui=0x1018 usr=0x1 
+ver=0x2 flags=0x0 type=0x2e status=0x6 reason=0x0 auth=0x0 dlen=0x0 addr=0x00x00x00x00x00x0 WLC_E_PSK_SUP UNSOLICITED
+0x0 0x0 0x20 0x0 0x0 0x1 0x0 0x1 0x0 0x0 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0xba 0x27 0xeb 0x5d 0x51 0x5a 0x88 0x6c 0x80 0x1 0x0 0x38 0x0 0x0 0x10 0x18 
+0x0 0x1 0x0 0x2 0x0 0x0 0x0 0x0 0x0 0x2e 0x0 0x0 0x0 0x6 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 
+0x77 0x6c 0x30 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 --------------------------------------------------------
+--------------------------------------------------------
+len=0x6c seq=0x1f chan=0x1 hdrlen=0xe flow=0x0 credit=0x2b 
+0x6c 0x0 0x93 0xff 0x1f 0x1 0x0 0xe 0x0 0x2b 0x0 0x0 
+dest=0xb80x270xeb0x5d0x510x5a srce=0xba0x270xeb0x5d0x510x5a type=0x886c IOCTL event frame received
+sub=0x8001 len=0x44 oui=0x1018 usr=0x1 
+ver=0x2 flags=0x0 type=0x0 status=0x0 reason=0x0 auth=0x0 dlen=0xc addr=0xdc0xa60x320xa10x940xfe WLC_E_SET_SSID SUCCESSjoin success!!!
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x1b 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x1c 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x1d 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x1e 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x1f 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x20 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x21 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x22 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x23 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x24 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+
+----------
+b->rp = 
+0x37 0x0 0xc8 0xff 0x25 0x2 0x0 0xc 0x0 0x0 0x0 0x0 0x20 0x0 0x0 0x0 0xdc 0xa6 0x32 0xa1 0x94 0xfe 0xb8 0x27 0xeb 0x5d 0x51 0x5a 0x8 0x0 0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x20 0x66 0x72 0x6f 0x6d 0x20 0x50 0x69 0x20 0x5a 0x65 0x72 0x6f 0x7e 
+----------
+Frame written to WLAN memory
+

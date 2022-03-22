@@ -124,7 +124,8 @@
 #define SDHOST_PIO_THRESHOLD          1  /* Maximum block count for PIO (0 = always DMA) */
 
 #define SDHOST_DMA_DEVICE 13   /// the DMA DREQ number for the SDHOST 
-#define SDHOST_DMA_CHANNEL 2   /// different than EMMC_DMA_CHANNEL(4)
+#define SDHOST_DMA_CHANNEL 5   /// different than EMMC_DMA_CHANNEL(4)
+#define SDHOST_IRQ        56
 struct SDHostStatus {
     uint32_t block_count; // block or byte count 
     uint32_t done;        // is the command done? 
@@ -169,4 +170,32 @@ uint32_t sdhost_wait_for_interrupt(uint32_t interrupt, uint32_t timeout);
 int sdhost_io_setup(uint32_t block_size, uint32_t block_count); 
 int sdhost_perform_io(unsigned is_write, uint8_t *buffer, uint32_t buffer_size); 
 #endif  // SDHOST_H 
+
+/**
+    https://github.com/torvalds/linux/blob/master/drivers/mmc/host/bcm2835.c 
+    https://9p.io/sources/contrib/miller/9/bcm/sdhost.c 
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
