@@ -163,7 +163,7 @@ int sdhost_sd_readblock(unsigned int lba, unsigned char *buffer, unsigned int nu
         if (!(sd_scr[0] & EMMC_SCR_SUPP_CCS)) {
             cmd(EMMC_CMD_READ_SINGLE_BLOCK, (lba+c)*512, resp);
         }
-        uint32_t r = sdhost_wait_for_interrupt(SDHOST_SDHSTS_BUSY_IRPT, 3000); 
+        uint32_t r = sdhost_wait_for_interrupt(SDHOST_SDHSTS_DATA_FLAG, 3000); 
         if (r == 0) {
             printk("sd_readblock: data timeout!\n"); 
             return 0; 
