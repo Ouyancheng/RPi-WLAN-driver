@@ -64,6 +64,8 @@ Sources:
 #define EMMC_R_DATA_CRC_ERR -9 
 #define EMMC_R_DATA_END_ERR -10 
 #define EMMC_R_ACMD_ERR -11 
+#define EMMC_BUFFER_MAX_SIZE 131072 
+#define EMMC_BUFFER_ALIGNMENT 4 
 typedef int(*card_interrupt_handler_t)(uint32_t); 
 /// the state of the emmc controller 
 struct EMMCState {

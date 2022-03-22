@@ -2,15 +2,15 @@
  * An adapter for the emmc driver to be compatible to the bzt-sd library interface 
  */ 
 #include "emmc/sdhci-bzt-adapter.h" 
-uint32_t sd_relative_addr; 
-uint32_t scr_buffer[8];
-uint32_t sd_scr[2]; 
-uint32_t resp[4];
+static uint32_t sd_relative_addr; 
+static uint32_t scr_buffer[8];
+static uint32_t sd_scr[2]; 
+static uint32_t resp[4];
 /**
  * This function is adapted from bzt's sdcard driver, 
  * it basically sets the pins for the sdcard, but these should be the default config... 
  */
-void sd_set_sdcard_gpio() {
+void sdhci_sd_set_sdcard_gpio() {
     // GPIO_CD
     uint32_t r = GET32(GPIO_FSEL4); r&=~(7<<(7*3)); PUT32(GPIO_FSEL4, r); 
     PUT32(GPIO_PUD, 2); delay_us(150); 
@@ -28,16 +28,16 @@ void sd_set_sdcard_gpio() {
     PUT32(GPIO_PUDCLK1, (1<<18) | (1<<19) | (1<<20) | (1<<21)); delay_us(150); 
     PUT32(GPIO_PUD, 0); PUT32(GPIO_PUDCLK1, 0);  delay_us(150);
 }
-int cmd(uint32_t cmd, uint32_t arg, uint32_t *resp) {
+static int cmd(uint32_t cmd, uint32_t arg, uint32_t *resp) {
     resp[0] = resp[1] = resp[2] = resp[3] = 0x0;
     uint32_t success = emmc_send_command(cmd, arg, resp);
     // printk("CMD%d, arg=%x: %s, resp=%x\n", cmd, arg, (success==EMMC_R_OK) ? "success" : "failed", resp[0]);
     return resp[0];
 }
-int sd_init() {
+int sdhci_sd_init() {
     memset(scr_buffer, 0xFF, 8 * sizeof(uint32_t)); 
 #if SD_SET_SDCARD_GPIO 
-    sd_set_sdcard_gpio();
+    sdhci_sd_set_sdcard_gpio();
 #endif 
     dma_init();
     printk("dma init-ed\n");
@@ -144,7 +144,8 @@ int sd_init() {
 }
 
 
-int sd_readblock(unsigned int lba, unsigned char *buffer, unsigned int num) {
+int sdhci_sd_readblock(unsigned int lba, unsigned char *buffer, unsigned int num) {
+    // printk("sdhci_sd_readblock(lba=%x, buf=%p, num=%u)\n", lba, buffer, num); 
 #if SDHCI_USE_DMA 
     if (num < 1) {
         num = 1; 
@@ -156,15 +157,28 @@ int sd_readblock(unsigned int lba, unsigned char *buffer, unsigned int num) {
     if (!(sd_scr[0] & EMMC_SCR_SUPP_CCS)) {
         panic("let's simplify the problem by assuming that the card supports multiblock transfer...\n"); 
     }
-    if (num > 1) {
-        cmd(EMMC_CMD_SET_BLOCK_COUNT, num, resp);
-    }
-    emmc_dma_setup(512, num); 
-    // PUT32(EMMC_BLKSIZECNT, (num << 16) | 512); 
-    cmd(num == 1 ? EMMC_CMD_READ_SINGLE_BLOCK : EMMC_CMD_READ_MULTIPLE_BLOCK, (uint32_t)lba, resp);
-    int ret = emmc_perform_dma(0, buffer, num*512); 
-    if (ret != EMMC_R_OK) {
-        return 0; 
+    
+    uint32_t blocks_remaining =  num; 
+    uint32_t bcount = 0; 
+    const uint32_t max_block = EMMC_BUFFER_MAX_SIZE / 512; 
+    while (blocks_remaining > 0) {
+        if (blocks_remaining > max_block) {
+            bcount = max_block; 
+        } else {
+            bcount = blocks_remaining; 
+        }
+        if (bcount > 1) {
+            cmd(EMMC_CMD_SET_BLOCK_COUNT, bcount, resp);
+        }
+        emmc_dma_setup(512, bcount); 
+        cmd(bcount == 1 ? EMMC_CMD_READ_SINGLE_BLOCK : EMMC_CMD_READ_MULTIPLE_BLOCK, (uint32_t)lba, resp);
+        int ret = emmc_perform_dma(0, buffer, bcount*512); 
+        if (ret != EMMC_R_OK) {
+            return 0; 
+        }
+        buffer += (bcount*512);
+        blocks_remaining -= bcount; 
+        lba += bcount; 
     }
     return num*512; 
 #else 
@@ -214,7 +228,7 @@ int sd_readblock(unsigned int lba, unsigned char *buffer, unsigned int num) {
 #endif 
 }
 
-int sd_writeblock(unsigned char *buffer, unsigned int lba, unsigned int num) {
+int sdhci_sd_writeblock(unsigned char *buffer, unsigned int lba, unsigned int num) {
 #if SDHCI_USE_DMA 
     if (num < 1) {
         num = 1; 
@@ -226,17 +240,48 @@ int sd_writeblock(unsigned char *buffer, unsigned int lba, unsigned int num) {
     if (!(sd_scr[0] & EMMC_SCR_SUPP_CCS)) {
         panic("let's simplify the problem by assuming that the card supports multiblock transfer...\n"); 
     }
-    if (num > 1) {
-        cmd(EMMC_CMD_SET_BLOCK_COUNT, num, resp);
-    }
-    emmc_dma_setup(512, num); 
-    // PUT32(EMMC_BLKSIZECNT, (num << 16) | 512); 
-    cmd(num == 1 ? EMMC_CMD_WRITE_BLOCK : EMMC_CMD_WRITE_MULTIPLE_BLOCK, lba, resp);
-    int ret = emmc_perform_dma(1, buffer, num*512); 
-    if (ret != EMMC_R_OK) {
-        return 0; 
+    
+    uint32_t blocks_remaining =  num; 
+    uint32_t bcount = 0; 
+    const uint32_t max_block = EMMC_BUFFER_MAX_SIZE / 512; 
+    while (blocks_remaining > 0) {
+        if (blocks_remaining > max_block) {
+            bcount = max_block; 
+        } else {
+            bcount = blocks_remaining; 
+        }
+        if (bcount > 1) {
+            cmd(EMMC_CMD_SET_BLOCK_COUNT, bcount, resp);
+        }
+        emmc_dma_setup(512, bcount); 
+        cmd(bcount == 1 ? EMMC_CMD_WRITE_BLOCK : EMMC_CMD_WRITE_MULTIPLE_BLOCK, (uint32_t)lba, resp);
+        int ret = emmc_perform_dma(1, buffer, bcount*512); 
+        if (ret != EMMC_R_OK) {
+            return 0; 
+        }
+        buffer += (bcount*512);
+        blocks_remaining -= bcount; 
+        lba += bcount; 
     }
     return num*512; 
+    // if (GET32(EMMC_STATUS) & EMMC_STATUS_DATA_INHIBIT) {
+    //     printk("sd_writeblock: Data inhibit!\n"); 
+    //     return 0; 
+    // }
+    // if (!(sd_scr[0] & EMMC_SCR_SUPP_CCS)) {
+    //     panic("let's simplify the problem by assuming that the card supports multiblock transfer...\n"); 
+    // }
+    // if (num > 1) {
+    //     cmd(EMMC_CMD_SET_BLOCK_COUNT, num, resp);
+    // }
+    // emmc_dma_setup(512, num); 
+    // // PUT32(EMMC_BLKSIZECNT, (num << 16) | 512); 
+    // cmd(num == 1 ? EMMC_CMD_WRITE_BLOCK : EMMC_CMD_WRITE_MULTIPLE_BLOCK, lba, resp);
+    // int ret = emmc_perform_dma(1, buffer, num*512); 
+    // if (ret != EMMC_R_OK) {
+    //     return 0; 
+    // }
+    // return num*512; 
 #else  
     int c = 0;
     if (num < 1) {

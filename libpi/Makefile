@@ -22,7 +22,9 @@ SRC := ./src/dma/dma.c \
         ./src/wlan/wlan-load-firmware.c \
         ./src/wlan/brcmfmac43430-sdio.c \
         ./src/wlan/wlan-ioctl.c \
-        ./src/wlan/wlan.c 
+        ./src/wlan/wlan.c \
+        ./src/sdhost/sdhost.c \
+        ./src/sdhost/sdhost-bzt-adapter.c 
 
 # if you want to use our gpio.o or other .o (e.g., if yours
 # is acting weird):

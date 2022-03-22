@@ -74,4 +74,25 @@ uint64_t rpi_get_serialnum(void);
 
 uint32_t rpi_get_clock_rate_hz(uint32_t clock_id);
 
+
+enum MBOX_CLOCKS {
+    MBOX_CLOCK_RESERVED = 0x000000000,  // : reserved
+    MBOX_CLOCK_EMMC     = 0x000000001,  // : EMMC
+    MBOX_CLOCK_UART     = 0x000000002,  // : UART
+    MBOX_CLOCK_ARM      = 0x000000003,  // : ARM
+    MBOX_CLOCK_CORE     = 0x000000004,  // : CORE
+    MBOX_CLOCK_V3D      = 0x000000005,  // : V3D
+    MBOX_CLOCK_H264     = 0x000000006,  // : H264
+    MBOX_CLOCK_ISP      = 0x000000007,  // : ISP
+    MBOX_CLOCK_SDRAM    = 0x000000008,  // : SDRAM
+    MBOX_CLOCK_PIXEL    = 0x000000009,  // : PIXEL
+    MBOX_CLOCK_PWM      = 0x00000000a,  // : PWM
+    MBOX_CLOCK_HEVC     = 0x00000000b,  // : HEVC
+    MBOX_CLOCK_EMMC2    = 0x00000000c,  // : EMMC2
+    MBOX_CLOCK_M2MC     = 0x00000000d,  // : M2MC
+    MBOX_CLOCK_PIXEL_BVB= 0x00000000e,  // : PIXEL_BVB
+
+};
+
+
 #endif

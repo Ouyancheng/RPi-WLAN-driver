@@ -5,7 +5,24 @@
  */
 #include "rpi.h"
 #include "fat32.h"
-#include "bzt-sd.h"
+#define USE_SDHOST 1 
+#define USE_SDHCI 0 
+#define USE_EXTERNAL 0 
+#if USE_EXTERNAL
+#include "bzt-sd.h" 
+#elif USE_SDHCI 
+#include "emmc/sdhci-bzt-adapter.h"
+#define sd_init       sdhci_sd_init 
+#define sd_readblock  sdhci_sd_readblock 
+#define sd_writeblock sdhci_sd_writeblock
+#elif USE_SDHOST 
+#include "sdhost/sdhost-bzt-adapter.h"
+#define sd_init       sdhost_sd_init 
+#define sd_readblock  sdhost_sd_readblock 
+#define sd_writeblock sdhost_sd_writeblock
+#else 
+#error "SD driver not found"
+#endif 
 
 int pi_sd_read(void *data, uint32_t lba, uint32_t nsec) {
     int res;

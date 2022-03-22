@@ -13,7 +13,8 @@ RUN = 1
 #CHECK = 1
 
 TEST_SRC := driver.c
-SRC := external-code/bzt-sd.c fat32-helpers.c
+SRC := fat32-helpers.c
+# external-code/bzt-sd.c 
 
 CFLAGS += -Iexternal-code
 

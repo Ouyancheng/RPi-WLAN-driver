@@ -77,8 +77,9 @@ int wlan_up() {
     ioctl_set_uint32("assoc_listen", DEFAULT_WAIT_MSEC, 10); 
     /// wlcmdint(ctlr, 0x56, 0);        /* powersave off */
     ioctl_wr_int32(0x56, DEFAULT_WAIT_MSEC, 0); 
+    /** Are we doing tx glom mode? If so we need to use the glom header for the tx packets!!! */
     /// wlsetint(ctlr, "bus:txglom", 0);
-    ioctl_set_uint32("bus:txglom", DEFAULT_WAIT_MSEC, 0); 
+    // ioctl_set_uint32("bus:txglom", DEFAULT_WAIT_MSEC, 0); 
     /// wlsetint(ctlr, "bcn_timeout", 10);
     ioctl_set_uint32("bcn_timeout", DEFAULT_WAIT_MSEC, 10); 
     /// wlsetint(ctlr, "assoc_retry_max", 3);

@@ -110,60 +110,14 @@ enum SDIO_CMD_LIST {
 
 };
 
-//  GO_IDLE_STATE       = 0,  // resp = no
-//  SEND_RELATIVE_ADDR  = 3,  // resp = r6 
-//  IO_SEND_OP_COND     = 5,  // resp = r4 
-//  SELECT_CARD         = 7,  // resp = r1b 
-//  VOLTAGE_SWITCH      = 11, // resp = ?
-//  IO_RW_DIRECT        = 52, // resp = r5 
-//  IO_RW_EXTENDED      = 53, // resp = r5 
-/*
-	Indexshift		= 24,
-	Suspend			= 1<<22,
-	Resume			= 2<<22,
-	Abort			= 3<<22,
-	Isdata			= 1<<21,
-	Ixchken			= 1<<20,
-	Crcchken		= 1<<19,
-	Respmask		= 3<<16,
-	Respnone		= 0<<16,
-	Resp136			= 1<<16,
-	Resp48			= 2<<16,
-	Resp48busy		= 3<<16,
-	Multiblock		= 1<<5,
-	Host2card		= 0<<4,
-	Card2host		= 1<<4,
-	Autocmd12		= 1<<2,
-	Autocmd23		= 2<<2,
-	Blkcnten		= 1<<1,
-*/
 
-enum EMMC_CMDTM_REG_MASKS {
-    EMMC_CMDTM_SUSPEND      = (1 << 22), 
-    EMMC_CMDTM_RESUME       = (2 << 22), 
-    EMMC_CMDTM_ABORT        = (3 << 22), 
-    EMMC_CMDTM_ISDATA       = (1 << 21), 
-    EMMC_CMDTM_IXCHK_EN     = (1 << 20), 
-    EMMC_CMDTM_CRCCHK_EN    = (1 << 19), 
-    EMMC_CMDTM_RESP_MASK    = (3 << 16), 
-    EMMC_CMDTM_RESP_NONE    = (0 << 16), 
-    EMMC_CMDTM_RESP_136     = (1 << 16), 
-    EMMC_CMDTM_RESP_48      = (2 << 16), 
-    EMMC_CMDTM_RESP_48BUSY  = (3 << 16), 
-    EMMC_CMDTM_MULTI_BLOCK  = (1 << 5), 
-    EMMC_CMDTM_HOST_TO_CARD = (0 << 4), 
-    EMMC_CMDTM_CARD_TO_HOST = (1 << 4), 
-    EMMC_CMDTM_AUTO_CMD12   = (1 << 2), // sends CMD12 after completion
-    EMMC_CMDTM_AUTO_CMD23   = (2 << 2), // sends CMD23 after completion 
-    EMMC_CMDTM_BLKCNT_EN    = (1 << 1), 
-    EMMC_CMDTM_CMD_INDEX_SHIFT = 24,  // the field corresponding the index 
-
-};
 #define ACMD41_VOLTAGE      0x00ff8000
 #define ACMD41_CMD_COMPLETE 0x80000000
 #define ACMD41_CMD_CCS      0x40000000
 #define ACMD41_ARG_HC       0x51ff8000
-
+#define EMMC_SCR_SD_BUS_WIDTH_4  0x00000400
+#define EMMC_SCR_SUPP_SET_BLKCNT 0x02000000
+#define EMMC_SCR_SUPP_CCS        0x00000001
 #define CMD52_WRITE_DATA_MASK (0xFF) 
 #define CMD52_RW_FLAG_SHIFT 31
 #define CMD52_FUNC_NUM_SHIFT 28 

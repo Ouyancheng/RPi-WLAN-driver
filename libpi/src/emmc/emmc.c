@@ -216,7 +216,12 @@ int emmc_init(void) {
     emmc_write_register(EMMC_INTERRUPT, 0xffffffff); // NOTE: write 1 to clear the interrupt state... 
     // emmc_write_register(EMMC_CONTROL1, 0);
     if (!emmc.dma_buffer) {
-        emmc.dma_buffer = (uint8_t*)mbox_malloc(4096, 64, MEM_FLAG_COHERENT, &(emmc.dma_buffer_handle)); 
+        emmc.dma_buffer = (uint8_t*)mbox_malloc(
+            EMMC_BUFFER_MAX_SIZE, 
+            EMMC_BUFFER_ALIGNMENT, 
+            MEM_FLAG_COHERENT, 
+            &(emmc.dma_buffer_handle)
+        ); 
     }
     #if EMMC_USE_INTERRUPT
     enable_interrupt(EMMC_IRQ, emmc_interrupt_handler, NULL); 
@@ -456,6 +461,7 @@ int emmc_send_command(uint32_t command, uint32_t argument, uint32_t *response) {
             break; 
         case EMMC_ACMD_SET_BUS_WIDTH: 
             if (emmc.appcmd) {
+                // do we need argument & 0x3? 
                 if (argument == 0) {
                     emmc_write_register(EMMC_CONTROL0, GET32(EMMC_CONTROL0) & ~EMMC_CTRL0_HCTL_DWIDTH4);
                 } else if (argument == 2) {
